@@ -1,0 +1,381 @@
+@import "tailwindcss";
+
+@theme inline {
+  --color-dusk-deep: #0e3a5c;
+  --color-dusk: #12507e;
+  --color-dusk-soft: #2c77a8;
+  --color-lilac: #d9effc;
+  --color-moonlight: #ffffff;
+  --color-paper: #f7f1e5;
+  --color-paper-shade: #eae0cc;
+  --color-rule: #d8ccb4;
+  --color-ink: #2e2440;
+  --color-ink-soft: #6b5e86;
+  --color-firefly: #f5c044;
+  --color-wax: #b4443c;
+
+  --font-display: var(--font-fraunces), georgia, serif;
+  --font-letter: var(--font-newsreader), georgia, serif;
+}
+
+:root {
+  color-scheme: light;
+}
+
+body {
+  background: #2a7cb2;
+  color: var(--color-moonlight);
+  font-family: var(--font-letter);
+}
+
+::selection {
+  background: var(--color-firefly);
+  color: var(--color-dusk-deep);
+}
+
+:focus-visible {
+  outline: 2px solid var(--color-firefly);
+  outline-offset: 3px;
+  border-radius: 3px;
+}
+
+/* readable white type on the bright sky */
+.sky-text {
+  text-shadow: 0 2px 24px rgba(10, 45, 74, 0.55), 0 1px 3px rgba(10, 45, 74, 0.35);
+}
+
+/* --------------------------------- the sky -------------------------------- */
+
+.star {
+  position: absolute;
+  border-radius: 50%;
+}
+
+@keyframes star-twinkle {
+  0%,
+  100% {
+    opacity: 0.25;
+  }
+  50% {
+    opacity: 1;
+  }
+}
+
+@keyframes drift-a {
+  0% {
+    transform: translate(0, 0);
+  }
+  50% {
+    transform: translate(-2.2%, 1.6%);
+  }
+  100% {
+    transform: translate(0, 0);
+  }
+}
+
+@keyframes drift-b {
+  0% {
+    transform: translate(0, 0);
+  }
+  50% {
+    transform: translate(1.8%, -1.4%);
+  }
+  100% {
+    transform: translate(0, 0);
+  }
+}
+
+.stars-drift-a {
+  animation: drift-a 90s ease-in-out infinite;
+}
+
+.stars-drift-b {
+  animation: drift-b 65s ease-in-out infinite;
+}
+
+.nebula {
+  position: absolute;
+  border-radius: 50%;
+  background: radial-gradient(ellipse at center, rgba(190, 228, 248, 0.5), transparent 65%);
+  filter: blur(28px);
+  animation: nebula-breathe 26s ease-in-out infinite;
+}
+
+@keyframes nebula-breathe {
+  0%,
+  100% {
+    transform: translate(0, 0) scale(1);
+    opacity: 0.7;
+  }
+  50% {
+    transform: translate(2.5%, -2%) scale(1.08);
+    opacity: 1;
+  }
+}
+
+.planet {
+  position: absolute;
+  border-radius: 50%;
+  background:
+    radial-gradient(circle at 34% 30%, rgba(210, 240, 252, 0.35), transparent 42%),
+    radial-gradient(circle at 60% 60%, #2b7aa6 0%, #1c5c85 62%, #124465 100%);
+  box-shadow:
+    inset -14px -10px 30px rgba(9, 40, 63, 0.55),
+    0 0 40px rgba(190, 230, 250, 0.25);
+  animation: planet-float 34s ease-in-out infinite;
+}
+
+@keyframes planet-float {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-14px);
+  }
+}
+
+/* --------------------------------- book ---------------------------------- */
+
+.book-scene {
+  perspective: 1700px;
+}
+
+.book {
+  position: relative;
+  transform-style: preserve-3d;
+  transform: rotateX(12deg) rotateY(0deg);
+  transition: transform 1s cubic-bezier(0.22, 1, 0.36, 1);
+  animation: book-breathe 6s ease-in-out infinite;
+}
+
+@keyframes book-breathe {
+  0%,
+  100% {
+    translate: 0 0;
+  }
+  50% {
+    translate: 0 -8px;
+  }
+}
+
+.book[data-stage="opening"] {
+  animation: none;
+  transform: rotateX(22deg) rotateY(7deg);
+}
+
+.book-cover {
+  position: absolute;
+  inset: 0;
+  transform-origin: left center;
+  transform: rotateY(0deg);
+  transition: transform 0.95s cubic-bezier(0.34, 1.08, 0.4, 1);
+  transform-style: preserve-3d;
+  z-index: 3;
+}
+
+.book[data-stage="opening"] .book-cover {
+  transform: rotateY(-148deg);
+}
+
+.book-shadow {
+  transition: transform 1s ease, opacity 1s ease;
+}
+
+.book[data-stage="opening"] .book-shadow {
+  transform: scaleX(1.22);
+  opacity: 0.65;
+}
+
+/* ------------------------- the shuffle transition ------------------------- */
+
+.shuffle-card {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform-origin: center;
+  animation: card-shuffle 1.25s cubic-bezier(0.3, 0.6, 0.25, 1) var(--delay, 0s) both;
+  will-change: transform, opacity;
+}
+
+@keyframes card-shuffle {
+  0% {
+    transform: translate(-50%, -50%) scale(0.14) rotate(0deg);
+    opacity: 0;
+  }
+  14% {
+    opacity: 1;
+  }
+  55% {
+    transform: translate(calc(-50% + var(--mx)), calc(-50% + var(--my))) scale(0.72)
+      rotate(var(--mr));
+    opacity: 1;
+  }
+  100% {
+    transform: translate(calc(-50% + var(--tx)), calc(-50% + var(--ty))) scale(var(--ts, 1.05))
+      rotate(var(--tr));
+    opacity: 1;
+  }
+}
+
+.shuffle-wash {
+  position: absolute;
+  inset: 0;
+  background: var(--color-paper);
+  animation: wash-in 0.55s ease-in var(--delay, 0.9s) both;
+}
+
+@keyframes wash-in {
+  from {
+    opacity: 0;
+    transform: scale(0.35);
+    border-radius: 32px;
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+    border-radius: 0;
+  }
+}
+
+/* ------------------------------ paper world ------------------------------ */
+
+.paper-sheet {
+  background:
+    linear-gradient(180deg, rgba(255, 252, 244, 0.6), transparent 120px),
+    var(--color-paper);
+  color: var(--color-ink);
+  box-shadow:
+    0 1px 0 rgba(255, 255, 255, 0.6) inset,
+    0 24px 70px rgba(10, 42, 66, 0.45);
+}
+
+.ruled {
+  background-image: repeating-linear-gradient(
+    to bottom,
+    transparent 0,
+    transparent calc(var(--line, 2rem) - 1px),
+    var(--color-rule) calc(var(--line, 2rem) - 1px),
+    var(--color-rule) var(--line, 2rem)
+  );
+  background-position-y: 0.55em;
+}
+
+/* ------------------------------ sealing ritual ---------------------------- */
+
+.seal-fold {
+  animation: seal-fold 0.8s cubic-bezier(0.6, 0, 0.3, 1) forwards;
+  transform-origin: center 35%;
+}
+
+@keyframes seal-fold {
+  0% {
+    transform: perspective(900px) rotateX(0deg) scale(1);
+  }
+  55% {
+    transform: perspective(900px) rotateX(-68deg) scale(0.92);
+  }
+  100% {
+    transform: perspective(900px) rotateX(0deg) scale(0.62) translateY(-4%);
+  }
+}
+
+.seal-wax {
+  animation: seal-wax 0.6s cubic-bezier(0.2, 1.4, 0.4, 1) 0.85s both;
+}
+
+@keyframes seal-wax {
+  0% {
+    transform: scale(2.1) rotate(-14deg);
+    opacity: 0;
+  }
+  60% {
+    transform: scale(0.94) rotate(2deg);
+    opacity: 1;
+  }
+  100% {
+    transform: scale(1) rotate(0deg);
+    opacity: 1;
+  }
+}
+
+.seal-fly {
+  animation: seal-fly 1.15s cubic-bezier(0.5, -0.1, 0.4, 1) forwards;
+}
+
+@keyframes seal-fly {
+  0% {
+    transform: translate(0, 0) scale(1);
+    opacity: 1;
+  }
+  35% {
+    transform: translate(4vw, -18vh) scale(0.28);
+    opacity: 1;
+  }
+  100% {
+    transform: translate(-6vw, -52vh) scale(0.06);
+    opacity: 0;
+  }
+}
+
+/* --------------------------------- misc ---------------------------------- */
+
+@keyframes rise-in {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+.rise-in {
+  animation: rise-in 0.6s ease-out both;
+}
+
+@keyframes fade-in {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+.fade-in {
+  animation: fade-in 0.5s ease-out both;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .stars-drift-a,
+  .stars-drift-b,
+  .nebula,
+  .planet,
+  .book,
+  .book-cover,
+  .book-shadow {
+    animation: none !important;
+    transition-duration: 0.01ms !important;
+  }
+  .star {
+    animation: none !important;
+    opacity: 0.6;
+  }
+  .shuffle-card,
+  .shuffle-wash,
+  .seal-fold,
+  .seal-wax,
+  .seal-fly,
+  .rise-in,
+  .fade-in {
+    animation-duration: 0.01ms !important;
+    animation-delay: 0s !important;
+  }
+  *,
+  *::before,
+  *::after {
+    transition-duration: 0.01ms !important;
+  }
+}
