@@ -23,13 +23,13 @@ const newsreader = Newsreader({
 export const metadata: Metadata = {
   metadataBase: new URL(process.env.NEXT_PUBLIC_SITE_URL ?? "http://localhost:3000"),
   title: {
-    default: "Chrysalis — write to someone who doesn't exist yet",
+    default: "Chrysalis: write to someone who doesn't exist yet",
     template: "%s · Chrysalis",
   },
   description:
-    "A quiet place to write one letter to the future — your future self, a child not yet here, a stranger in 2126. Seal it, and let it wait.",
+    "A quiet place to write one letter to the future. To your future self, a kid who isn't here yet, a stranger in 2126. Seal it, and let it wait.",
   openGraph: {
-    title: "Chrysalis — write to someone who doesn't exist yet",
+    title: "Chrysalis: write to someone who doesn't exist yet",
     description: "Open the book. Write the letter. Seal it, and let it wait.",
     type: "website",
   },

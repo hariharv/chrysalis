@@ -176,8 +176,8 @@ export function HomeExperience() {
             className="rise-in sky-text mt-5 max-w-md font-letter text-lg italic leading-relaxed text-lilac"
             style={{ animationDelay: "240ms" }}
           >
-            Your letter is a small gold light in this sky now — for {justSealed.to}. It goes in
-            as <em>now</em>. It comes out as <em>someday</em>.
+            Your letter is one of the little lights up there now, waiting for {justSealed.to}.
+            You wrote it today. They&rsquo;ll read it someday.
           </p>
           <div
             className="rise-in mt-10 flex flex-wrap items-center justify-center gap-3"
@@ -206,8 +206,8 @@ export function HomeExperience() {
             className="rise-in sky-text mt-8 max-w-sm font-letter text-xs leading-relaxed text-lilac"
             style={{ animationDelay: "500ms" }}
           >
-            The copy is a single file that needs no website and no company to survive — a
-            keepsake that keeps the promise for you.
+            The copy is just one file. It doesn&rsquo;t need this website, or us, or anything
+            else to work. It holds onto your letter until the day comes.
           </p>
         </section>
       ) : null}

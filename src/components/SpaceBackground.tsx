@@ -1,5 +1,5 @@
 /**
- * The bright sky — a day-lit nebula with drifting star fields and a far
+ * The bright sky, a day-lit nebula with drifting star fields and a far
  * planet. Fixed behind everything; two star layers wander in opposite
  * directions so the sky is always gently in motion. Deterministic positions,
  * pure CSS animation.

@@ -19,7 +19,7 @@ export function ShuffleTransition() {
     <div className="fixed inset-0 z-[45] overflow-hidden" aria-hidden>
       {Array.from({ length: CARD_COUNT }, (_, i) => {
         const k = i * 9;
-        // mid-flight scatter, then a wider landing — half sweep left, half right
+        // mid-flight scatter, then a wider landing, half sweep left, half right
         const side = i % 2 === 0 ? 1 : -1;
         const mx = side * (12 + rand(k) * 26);
         const my = -14 + rand(k + 1) * 30;
@@ -47,7 +47,7 @@ export function ShuffleTransition() {
           </div>
         );
       })}
-      {/* the wash — one page grows until it is the whole world */}
+      {/* the wash, one page grows until it is the whole world */}
       <div className="shuffle-wash" style={{ ["--delay" as string]: "0.82s" }} />
     </div>
   );

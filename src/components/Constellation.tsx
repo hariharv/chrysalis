@@ -3,7 +3,7 @@ import { opensAtLabel } from "@/lib/letters";
 
 /**
  * The waiting sky. Ambient stars are other people's someday-letters (in
- * spirit); the bright gold ones are yours. Deterministic layout — the sky
+ * spirit); the bright gold ones are yours. Deterministic layout, the sky
  * shouldn't rearrange itself between visits.
  */
 

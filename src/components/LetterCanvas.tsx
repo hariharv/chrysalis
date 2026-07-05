@@ -80,18 +80,18 @@ export function LetterCanvas({ onSeal, onClose }: LetterCanvasProps) {
             </svg>
           </button>
 
-          <p className="font-display text-sm italic text-ink-soft">A letter, begun tonight</p>
+          <p className="font-display text-sm italic text-ink-soft">You&rsquo;re writing to the future.</p>
 
           {/* To */}
           <div className="mt-6">
             <label htmlFor="letter-to" className="font-display text-lg text-ink">
-              To —
+              Who&rsquo;s it for?
             </label>
             <input
               id="letter-to"
               value={to}
               onChange={(e) => setTo(e.target.value)}
-              placeholder="anyone the future holds"
+              placeholder="a name, or just &ldquo;the future&rdquo;"
               className="mt-1 w-full border-b border-rule bg-transparent pb-1.5 font-letter text-xl italic text-ink placeholder:text-ink-soft/50 focus:border-firefly focus:outline-none"
             />
             <div className="mt-2.5 flex flex-wrap gap-2">
@@ -121,7 +121,7 @@ export function LetterCanvas({ onSeal, onClose }: LetterCanvasProps) {
                 setNudge(false);
                 grow(e.target);
               }}
-              placeholder="Tell them what tonight is like. What you hope. What you'd want them to know about being you, here, now…"
+              placeholder="Tell them what today felt like. What you're hoping for. What you'd want them to know about you, right now."
               aria-label="Your letter"
               className="ruled min-h-52 w-full resize-none overflow-hidden bg-transparent font-letter text-lg leading-8 text-ink [--line:2rem] placeholder:italic placeholder:text-ink-soft/45 focus:outline-none"
             />
@@ -134,7 +134,7 @@ export function LetterCanvas({ onSeal, onClose }: LetterCanvasProps) {
 
           {/* When */}
           <div className="mt-8">
-            <p className="font-display text-lg text-ink">It opens —</p>
+            <p className="font-display text-lg text-ink">When should it open?</p>
             <div className="mt-2.5 flex flex-wrap items-center gap-2">
               {WHEN_CHIPS.map((chip) => (
                 <button
@@ -167,7 +167,7 @@ export function LetterCanvas({ onSeal, onClose }: LetterCanvasProps) {
               {customValid ? (
                 <>that&rsquo;s {opensAtLabel(opensAt.toISOString())}</>
               ) : (
-                <span className="text-wax">that day has already happened — pick a day still to come</span>
+                <span className="text-wax">that day already passed. pick one that&rsquo;s still ahead.</span>
               )}
             </p>
           </div>
@@ -175,7 +175,7 @@ export function LetterCanvas({ onSeal, onClose }: LetterCanvasProps) {
           {/* Seal */}
           <div className="mt-10 flex flex-wrap items-center justify-between gap-4">
             <p className="max-w-60 font-letter text-xs leading-relaxed text-ink-soft">
-              Letters stay on this device. After sealing you can keep a copy anywhere.
+              Your letter stays on this device. Once you seal it, you can save a copy anywhere you want.
             </p>
             <button
               onClick={seal}

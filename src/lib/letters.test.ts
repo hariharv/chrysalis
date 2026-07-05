@@ -102,6 +102,6 @@ describe("the keepsake", () => {
     expect(html).toContain("remember the lake");
     expect(html).toContain("my future self");
     expect(html).toContain(String(new Date(l.opensAt).getTime()));
-    expect(html).toContain("needs no website");
+    expect(html).toContain("doesn't need a website");
   });
 });

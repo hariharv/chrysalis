@@ -15,7 +15,7 @@ import {
 } from "@/lib/letters";
 
 /**
- * The vault: your letters, each with its countdown — and a few letters from
+ * The vault: your letters, each with its countdown, and a few letters from
  * the past, so the room is never empty and the register is never in doubt.
  */
 
@@ -103,8 +103,8 @@ export function LettersClient() {
       <div className="relative z-10 mx-auto max-w-3xl px-4 pb-16 pt-28 sm:px-6">
         <h1 className="sky-text font-display text-4xl text-moonlight sm:text-5xl">Your letters</h1>
         <p className="sky-text mt-3 max-w-xl font-letter text-lg italic leading-relaxed text-lilac">
-          Each one waits on this device, keeping its date. When a letter&rsquo;s day arrives, it
-          glows.
+          Every letter you&rsquo;ve sealed lives right here on your device, counting down. When
+          one&rsquo;s day finally comes, it lights up.
         </p>
 
         {letters.length === 0 ? (
@@ -179,8 +179,8 @@ export function LettersClient() {
         {/* letters from the past */}
         <h2 className="sky-text mt-16 font-display text-2xl text-moonlight">Letters from the past</h2>
         <p className="sky-text mt-2 max-w-xl font-letter italic leading-relaxed text-lilac/90">
-          People have always written across time — on paper that had to survive attics, wars,
-          and forgetting. Three that made it:
+          People have always written to the future. On paper that had to survive attics, wars,
+          and being forgotten. Here are three that made it.
         </p>
         <ul className="mt-6 grid gap-3 sm:grid-cols-3">
           {PAST_LETTERS.map((letter) => (

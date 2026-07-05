@@ -1,8 +1,8 @@
 "use client";
 
 /**
- * The hero object: an old book of knowledge — worn leather, gold tooling,
- * brass corners, raised spine bands — floating in the bright sky. The stage
+ * The hero object: an old book of knowledge, worn leather, gold tooling,
+ * brass corners, raised spine bands, floating in the bright sky. The stage
  * prop swings the cover; the shuffle transition takes it from there.
  */
 
@@ -40,7 +40,7 @@ export function Book({ stage }: BookProps) {
           className="book h-80 w-56 sm:h-96 sm:w-68"
           data-stage={stage !== "closed" ? stage : undefined}
         >
-          {/* page block — the centuries of pages */}
+          {/* page block, the centuries of pages */}
           <div className="absolute inset-0 rounded-r-md rounded-l-sm bg-paper-shade shadow-[inset_-3px_0_8px_rgba(46,36,64,0.2)]">
             <div
               className="absolute inset-y-1 right-0 w-2.5 rounded-r-md"
@@ -57,11 +57,11 @@ export function Book({ stage }: BookProps) {
               }}
             />
             <div className="ruled absolute inset-3 rounded-sm bg-paper px-4 py-5 [--line:1.6rem]">
-              <p className="font-display text-sm italic text-ink-soft">Begin here —</p>
+              <p className="font-display text-sm italic text-ink-soft">Begin here.</p>
             </div>
           </div>
 
-          {/* front cover — old leather */}
+          {/* front cover, old leather */}
           <div className="book-cover">
             {/* outside */}
             <div
